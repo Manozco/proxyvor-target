@@ -1,0 +1,38 @@
+{
+    "paths" : {
+        "proxy_check" : "store/"
+    },
+    "https": {
+        "enabled": false,
+        "certfile": "server.pem",
+        "keyfile": "server.pem"
+    },
+    "logger": {
+        "_comment": "See https://docs.python.org/2/library/logging.config.html#dictionary-schema-details for details on how to configure loggers",
+        "version": 1,
+        "formatters": {
+            "simple": {
+                "format": "'%(asctime)s - %(levelname)s - %(message)s'"
+            }
+        },
+        "handlers": {
+            "console": {
+                "class": "logging.StreamHandler",
+                "level": "DEBUG",
+                "formatter": "simple",
+                "stream": "ext://sys.stdout"
+            },
+            "file": {
+                "class": "logging.FileHandler",
+                "level": "INFO",
+                "formatter": "simple",
+                "filename": "logfile.log"
+            }
+        },
+        "root": {
+            "level": "DEBUG",
+            "handlers": ["console", "file"]
+        }
+    },
+    "port": 8080
+}

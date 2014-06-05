@@ -1,0 +1,4 @@
+store
+config.json
+*.pem
+logfile.log

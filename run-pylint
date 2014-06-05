@@ -1,0 +1,19 @@
+#!/usr/bin/python
+import os
+import subprocess
+
+PYLINT_RC_FILE = ".pylintrc"
+
+python_files = []
+for root, subFolders, files in os.walk(os.path.dirname(os.path.abspath(__file__))):
+    if '.git' in subFolders:
+        subFolders.remove('.git')
+    for fi in files:
+        if fi.endswith(".py"):
+            python_files.append(os.path.join(root, fi))
+
+pylint_args = ['pylint', '--rcfile={}'.format(PYLINT_RC_FILE)]
+for python_file in python_files:
+    pylint_args.append(python_file)
+
+subprocess.call(pylint_args)

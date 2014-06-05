@@ -1,0 +1,3 @@
+sudo easy_install -U bottle
+sudo apt-get install python-cherrypy3
+sudo apt-get install python-openssl
